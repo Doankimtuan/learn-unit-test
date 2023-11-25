@@ -1,0 +1,17 @@
+- Input validation: 
+	+ Thiếu giá trị đầu vào (expected: Sai giá trị input)
+    + Sai format: Sai format ngày khởi hành, sai format loại ghế, sai format đối tượng (expected: Sai giá trị input)
+	+ Đúng format (expected: Không hiển thị "Sai giá trị input")
+- Tìm tàu phù hợp thời gian đặt:
+	+ Thời gian đặt trước 8:30 (expected: có 2 option SE1 và SE2)
+	+ Thời gian đặt 8:30 (expected: có 1 option SE2)
+	+ Thời gian đặt sau 8:30 trước 12:00 (expected: có 1 option SE2)
+	+ Thời gian đặt 12:00 (expected: Không có tàu)
+	+ Thời gian đặt sau 12:00 (expected: Không có tàu)
+- Tính tiền vé (yêu cầu thời gian đặt phải trước 12:00)
+	+ L1 + 1 (expected: SE1: 90k, SE2: 135k)
+	+ L2 + 2 (expected: SE1: 160k, SE2: 200k)
+	+ L3 + 3 (expected: SE1: 75k, SE2: 85k)
+	+ L3 + 4 (expected: SE1: 150k, SE2: 170k)
+- Hiển thị thời gian xuất phát:
+	+ Hiển thị dưới dạng: ngày đặt + thời gian xuất phát của tàu
