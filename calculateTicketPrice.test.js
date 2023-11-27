@@ -157,7 +157,18 @@ describe("Find the right train", () => {
 });
 
 describe("Calculate train ticket fare", () => {
-  it("seatTypes = L3, passengerType = 3", () => {
+  it("seatTypes = L1, passengerType = 1", () => {
+    const data = {
+      departureDay: "12/12/2023 07:30",
+      seatTypes: "L1",
+      passengerType: 1,
+    };
+    const result = calculateTicketPrice(data);
+    expect(result).toBe(
+      `\nOption 1: \n-  Tàu : SE1\n-  Thời gian xuất phát : 12/12/2023 08:30\n-  Tổng tiền : 90k\nOption 2: \n-  Tàu : SE2\n-  Thời gian xuất phát : 12/12/2023 12:00\n-  Tổng tiền : 135k`
+    );
+  });
+  it("seatTypes = L2, passengerType = 2", () => {
     const data = {
       departureDay: "12/12/2023 07:30",
       seatTypes: "L3",
@@ -166,6 +177,17 @@ describe("Calculate train ticket fare", () => {
     const result = calculateTicketPrice(data);
     expect(result).toBe(
       `\nOption 1: \n-  Tàu : SE1\n-  Thời gian xuất phát : 12/12/2023 08:30\n-  Tổng tiền : 75k\nOption 2: \n-  Tàu : SE2\n-  Thời gian xuất phát : 12/12/2023 12:00\n-  Tổng tiền : 85k`
+    );
+  });
+  it("seatTypes = L3, passengerType = 3", () => {
+    const data = {
+      departureDay: "12/12/2023 07:30",
+      seatTypes: "L2",
+      passengerType: 2,
+    };
+    const result = calculateTicketPrice(data);
+    expect(result).toBe(
+      `\nOption 1: \n-  Tàu : SE1\n-  Thời gian xuất phát : 12/12/2023 08:30\n-  Tổng tiền : 160k\nOption 2: \n-  Tàu : SE2\n-  Thời gian xuất phát : 12/12/2023 12:00\n-  Tổng tiền : 200k`
     );
   });
   it("seatTypes = L3, passengerType = 4", () => {
